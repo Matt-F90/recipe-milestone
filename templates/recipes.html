@@ -1,15 +1,31 @@
-<html>
-<head>
-<body>
+{% extends 'base.html' %}
+{% block content%}
+
+<div class="recipe-container">
+	<div class="row">
     {% for meal in meals %}
-        {{meals.category_name}}
-        {{meals.recipe_name}}
-        {{meals.prep_time}}
-        {{meals.cooking_time}}
-        {{meals.description}}
-        {{meals.ingredients}}
-        {{meals.method}}
-    {% endfor %}
-</body>
-</head>
-</html>
+		<div class="col-12 col-md-4">
+
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<h1>{{meal.recipe_name}}</h1>
+					</div>
+					<div class="flip-card-back">
+						<p>{{meal.description}}</p>
+						<p>{{meal.prep_time}}</p>
+						<p>{{meal.cooking_time}}</p>
+						<textarea class="textarea">{{meal.ingredients}}</textarea>
+						<textarea class="textarea">{{meal.method}}</textarea>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+		{% endblock %}
